@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": "store",
+      "name": "store",
+      "summary": "Filesystem-inspired storage engine with custom on-disk format."
+    },
+    {
+      "id": "sahdb",
+      "name": "sahDB",
+      "summary": "Minimal Redis-inspired database written in C."
+    }
+  ]
+}

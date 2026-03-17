@@ -1,9 +1,11 @@
+/* Base */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #1e1b16;
   color: #e6dccb;
   margin: 0;
   padding: 2.5rem;
+  line-height: 1.6;
 }
 
 main {
@@ -11,23 +13,39 @@ main {
   margin: auto;
 }
 
+/* Headings */
 h1 {
   font-size: 2.2rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   color: #f2e6d0;
+}
+
+h2 {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: #f0e2c4;
+  border-bottom: 1px solid #3a3328;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  color: #e6d8b7;
 }
 
 .tagline {
   color: #c7b89c;
-  margin-bottom: 1.5rem;
-}
-
-nav {
   margin-bottom: 2rem;
 }
 
+/* Navigation */
+nav {
+  margin-bottom: 3rem;
+}
+
 nav a {
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   color: #d6c8a8;
   text-decoration: none;
 }
@@ -36,25 +54,23 @@ nav a:hover {
   text-decoration: underline;
 }
 
-h2 {
-  margin-top: 2.5rem;
-  font-size: 1.25rem;
-  color: #f0e2c4;
+/* Sections */
+section {
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #3a3328;
 }
 
-p {
-  line-height: 1.6;
-  color: #e0d4be;
-}
-
+/* Lists */
 ul {
   padding-left: 1.2rem;
 }
 
 li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
+/* Links */
 a {
   color: #e0c97f;
   text-decoration: none;
@@ -62,4 +78,81 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Meta info */
+.meta {
+  color: #c7b89c;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Controls */
+.controls {
+  margin-bottom: 1rem;
+}
+
+/* Code/Markdown blocks */
+pre {
+  background: #2a251d;
+  padding: 0.8rem;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+code {
+  background: #2a251d;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* Research viewer spacing */
+#viewer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #2a251d;
+  border-radius: 5px;
+}
+
+#project-viewer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #2a251d;
+  border-radius: 5px;
+  border: 1px solid #3a3328;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+footer .footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0c97f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer-icon:hover {
+  color: #f2e6d0;
+}
+
+footer svg {
+  width: 24px;
+  height: 24px;
+}
+
+footer {
+  left: 1rem;
+  right: auto;
 }

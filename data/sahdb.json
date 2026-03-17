@@ -1,0 +1,23 @@
+{
+  "id": "sahdb",
+  "name": "sahDB",
+  "summary": "Minimal Redis-inspired database written in C.",
+
+  "repo": "https://github.com/rsa-sha/sahDB",
+
+  "design": [
+    "Single-threaded event loop",
+    "Explicit command parsing",
+    "Persistence via append log"
+  ],
+
+  "experiments": [
+    {
+      "title": "Concurrent client stress",
+      "date": "2026-03-08",
+      "setup": "100 clients, pipelined requests",
+      "result": "Throughput stable, latency increases",
+      "notes": "Queueing dominates at high load"
+    }
+  ]
+}

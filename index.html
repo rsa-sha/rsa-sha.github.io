@@ -8,9 +8,10 @@
 <body>
   <main>
     <h1>Sahil Sharma</h1>
-    <p class="tagline">Systems engineer focused on storage, Linux internals, and failure-oriented design.</p>
+    <p class="tagline">Systems engineer — storage, failure modes, and correctness.</p>
 
     <nav>
+      <a href="/research/">research</a>
       <a href="#about">about</a>
       <a href="#projects">projects</a>
       <a href="#resume">resume</a>
@@ -20,57 +21,69 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I am a systems engineer working close to the operating system boundary, with experience in
-        distributed systems, storage, and reliability-critical infrastructure. My work involves
-        debugging production failures, reasoning about correctness under concurrency, and understanding
-        how systems behave under stress and partial failure.
+        I am a systems engineer working close to the OS boundary, with experience in distributed systems, storage, and reliability-critical infrastructure. My work involves debugging production failures, reasoning about correctness under concurrency, and understanding how systems behave under stress and partial failure.
       </p>
       <p>
-        I am particularly interested in storage engines, filesystem abstractions, networked systems,
-        and failure modes that emerge from real-world conditions such as crashes, resource exhaustion,
-        and unreliable networks. I value clarity of reasoning, explicit invariants, and simple designs
-        that fail in understandable ways.
+        I am particularly interested in storage engines, filesystem abstractions, networked systems, and failure modes that emerge from real-world conditions such as crashes, resource exhaustion, and unreliable networks. I value clarity of reasoning, explicit invariants, and simple designs that fail in understandable ways.
       </p>
       <p>
-        Outside of work, I build small systems projects in C to explore on-disk formats, networking
-        tradeoffs, and performance behavior. This site documents those explorations.
+        Outside of work, I build small systems projects in C to explore on-disk formats, networking tradeoffs, and performance behavior. This site documents those explorations.
       </p>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>store</strong> — filesystem-inspired storage engine<br>
-          <a href="projects/store.html">docs</a> ·
-          <a href="https://github.com/rsa-sha/store">github</a>
-        </li>
-        <li>
-          <strong>sahDB</strong> — Redis-inspired minimal database<br>
-          <a href="projects/sahdb.html">docs</a> ·
-          <a href="https://github.com/rsa-sha/sahDB">github</a>
-        </li>
-      </ul>
+      <div id="projects-list">
+        <!-- JS will inject minimal project summaries -->
+      </div>
     </section>
 
     <section id="resume">
       <h2>Resume</h2>
-      <p>
-        A current copy of my resume is available below.
-      </p>
-      <p>
-        <a href="resume/Sahil_Sharma_Resume.pdf" download>Download resume (PDF)</a>
-      </p>
+      <p>A current copy of my resume is available below.</p>
+      <p><a href="resume/Sahil_Sharma_Resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a></p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <ul>
-        <li><a href="mailto:sahilsharma.r@proton.me">Email</a></li>
-        <li><a href="https://github.com/rsa-sha">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/sharmasahil16661">LinkedIn</a></li>
+        <li><a href="mailto:sahilsharma.r@proton.me">email</a></li>
+        <li><a href="https://github.com/rsa-sha">github</a></li>
+        <li><a href="https://www.linkedin.com/in/sharmasahil16661">linkedin</a></li>
       </ul>
     </section>
   </main>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.pushState(null, null, this.getAttribute("href"));
+        }
+      });
+    });
+  </script>
+
+  <script src="main.js"></script>
+
+  <footer>
+  <a href="/" class="footer-icon" title="Home">
+    <!-- House SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M12 3l10 9h-3v9h-6v-6h-2v6H5v-9H2z"/>
+    </svg>
+  </a>
+
+  <a href="https://github.com/rsa-sha" target="_blank" rel="noopener" class="footer-icon" title="GitHub">
+    <!-- GitHub SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.16c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.382 1.236-3.222-.124-.304-.536-1.527.116-3.18 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.403c1.02.005 2.047.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.242 2.876.118 3.18.77.84 1.236 1.912 1.236 3.222 0 4.61-2.807 5.625-5.479 5.922.43.37.823 1.102.823 2.222v3.293c0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+  </a>
+</footer>
 </body>
 </html>

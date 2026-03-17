@@ -1,0 +1,71 @@
+
+---
+
+### Research JS (`research/research.js`)
+
+```js
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+async function loadPosts() {
+  const manifest = await loadJSON("posts/index.json");
+  if (!manifest) return;
+
+  const allPosts = await Promise.all(
+    manifest.posts.map(async p => {
+      const meta = await loadJSON(`posts/${p.id}.json`);
+      const mdRes = await fetch(`posts/${p.id}.md`);
+      const content = mdRes.ok ? await mdRes.text() : "";
+      return { ...meta, content };
+    })
+  );
+
+  return allPosts;
+}
+
+// Render posts list and viewer with sorting
+function renderPosts(posts, sort = "desc") {
+  const container = document.getElementById("posts-list");
+  const sorted = [...posts].sort((a, b) =>
+    sort === "desc" ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date)
+  );
+
+  container.innerHTML = `
+    <ul>
+      ${sorted.map(p => `
+        <li>
+          <strong>${p.title}</strong><br>
+          <em>${p.date} · ${p.project}</em><br>
+          ${p.summary}<br>
+          <a href="#" onclick="showPost('${p.id}')">read</a>
+        </li>
+      `).join("")}
+    </ul>
+  `);
+
+  window.allPosts = posts;
+}
+
+// Display Markdown in viewer
+function showPost(id) {
+  const post = window.allPosts.find(p => p.id === id);
+  if (!post) return;
+
+  const viewer = document.getElementById("viewer");
+  // Simple Markdown rendering
+  viewer.innerHTML = `
+    <h2>${post.title}</h2>
+    <p><em>${post.date} · ${post.project}</em></p>
+    <p>${post.summary}</p>
+    <div>${marked(post.content)}</div>
+  `;
+}
+
+document.getElementById("sort").addEventListener("change", e => {
+  renderPosts(window.allPosts, e.target.value);
+});
+
+loadPosts().then(posts => renderPosts(posts));

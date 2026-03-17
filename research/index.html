@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Research</h1>
+    <p class="tagline">
+      Experiments, behavior under failure, and system-level observations.
+    </p>
+
+    <nav>
+      <a href="../index.html">home</a>
+    </nav>
+
+    <section id="posts">
+      <div class="controls">
+        <label>Sort posts:</label>
+        <select id="sort">
+          <option value="desc">newest first</option>
+          <option value="asc">oldest first</option>
+        </select>
+      </div>
+
+      <div id="posts-list"></div>
+    </section>
+
+    <section id="viewer"></section>
+  </main>
+
+  <script src="research.js"></script>
+
+  <footer>
+  <a href="/" class="footer-icon" title="Home">
+    <!-- House SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 3l10 9h-3v9h-6v-6h-2v6H5v-9H2z"/>
+    </svg>
+  </a>
+
+  <a href="https://github.com/rsa-sha" target="_blank" rel="noopener" class="footer-icon" title="GitHub">
+    <!-- GitHub SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.16c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.332-5.467-5.932 0-1.31.468-2.382 1.236-3.222-.124-.304-.536-1.527.116-3.18 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.403c1.02.005 2.047.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.654 1.653.242 2.876.118 3.18.77.84 1.236 1.912 1.236 3.222 0 4.61-2.807 5.625-5.479 5.922.43.37.823 1.102.823 2.222v3.293c0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+  </a>
+</footer>
+</body>
+</html>

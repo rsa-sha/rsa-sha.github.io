@@ -1,0 +1,29 @@
+{
+  "id": "store-fsync",
+  "title": "Fsync latency under append workload",
+  "project": "store",
+  "date": "2026-03-10",
+
+  "summary": "Explores latency spikes when fsync is issued per write.",
+
+  "setup": [
+    "ext4 filesystem",
+    "4KB append writes",
+    "fsync after each write"
+  ],
+
+  "observations": [
+    "Latency spikes every ~200ms",
+    "Throughput drops significantly under sustained load"
+  ],
+
+  "results": {
+    "throughput_ops_sec": 800,
+    "p99_latency_ms": 120
+  },
+
+  "notes": [
+    "Journal flush likely bottleneck",
+    "Need batching or group commit"
+  ]
+}

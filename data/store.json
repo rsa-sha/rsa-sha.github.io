@@ -1,0 +1,30 @@
+{
+  "id": "store",
+  "name": "store",
+  "summary": "Filesystem-inspired storage engine with explicit disk layout.",
+
+  "repo": "https://github.com/rsa-sha/store",
+
+  "design": [
+    "Append-only segments",
+    "Explicit on-disk metadata",
+    "Crash consistency via ordering"
+  ],
+
+  "experiments": [
+    {
+      "title": "Append throughput under fsync",
+      "date": "2026-03-10",
+      "setup": "4KB writes, ext4, fsync per write",
+      "result": "~800 ops/sec",
+      "notes": "Latency spikes due to journal flush"
+    },
+    {
+      "title": "Crash during metadata update",
+      "date": "2026-03-12",
+      "setup": "kill -9 during write",
+      "result": "Partial record observed",
+      "notes": "Need length prefix + checksum"
+    }
+  ]
+}

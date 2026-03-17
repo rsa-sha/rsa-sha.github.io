@@ -1,0 +1,7 @@
+{
+  "id": "my_post",
+  "title": "Fsync latency experiment",
+  "project": "store",
+  "date": "2026-03-10",
+  "summary": "Explores latency spikes when fsync is issued per write."
+}
